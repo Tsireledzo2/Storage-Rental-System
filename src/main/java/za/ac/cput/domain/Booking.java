@@ -18,6 +18,18 @@ public class Booking {
     private boolean collection;
     private double Amount;
 
+    public Booking() {
+    }
+
+    public Booking(String id, Date date, Date startDate, Date endDate, boolean collection, double amount) {
+        this.id = id;
+        this.date = date;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.collection = collection;
+        Amount = amount;
+    }
+
     public Booking (Builder builder) {
         this.id = builder.id;
         this.date = builder.date;

@@ -16,7 +16,16 @@ public class Reservation {
     private String iD, bookingId;
     private Date date;
 
-    public Reservation(Builder builder) {
+    private Reservation() {
+    }
+
+    public Reservation(String iD, String bookingId, Date date) {
+        this.iD = iD;
+        this.bookingId = bookingId;
+        this.date = date;
+    }
+
+    private Reservation(Builder builder) {
         this.iD = builder.iD;
         this.bookingId = builder.bookingId;
         this.date = builder.date;
