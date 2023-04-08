@@ -1,3 +1,9 @@
+/**
+ * VehicleFactory.java
+ * Class for the VehicleFactory
+ * @author: Tsireledzo Wisdom Makhado (221116273)
+ * Date: 08 April 2023
+ */
 package za.ac.cput.factory;
 
 import za.ac.cput.domain.Vehicle;
