@@ -1,8 +1,7 @@
-/*
-This is the StorageUnit class
-Author Ruvimbo Ndoro 220128871
-Date 8May 2023
-
+/**
+ * This is the StorageUnit class
+ * Author Ruvimbo Ndoro 220128871
+ * Date 8May 2023
  */
 
 package za.ac.cput.domain;
