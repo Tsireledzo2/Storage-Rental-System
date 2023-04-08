@@ -12,7 +12,7 @@ public class Customer {
     private String email;
     private String phone;
 
-    public Customer(){
+    private Customer(){
 
     }
     private Customer(Builder builder){
