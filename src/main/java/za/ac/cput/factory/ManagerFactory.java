@@ -15,6 +15,11 @@ public class ManagerFactory {
         if(Helper.isNullorEmpty(firstName)||Helper.isNullorEmpty(lastName)){
             return null;
         }
+        String managerID = Helper.generateId();
+
+        if (!Helper.isValidEmial(email)){
+            return null;
+        }
 
         Manager manager = new Manager.Builder()
                 .setId(id)
