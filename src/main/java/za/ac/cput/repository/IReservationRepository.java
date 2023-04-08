@@ -1,4 +1,5 @@
 package za.ac.cput.repository;
+
 /*
  * Booking.java
  * Booking Entity
@@ -12,5 +13,4 @@ import za.ac.cput.domain.Reservation;
 import java.util.Set;
 
 public interface IReservationRepository extends IRepository<Reservation, String>{
-    Set<Reservation> getAll();
-}
+    Set<Reservation> getAll();}

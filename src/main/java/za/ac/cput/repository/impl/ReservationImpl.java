@@ -1,4 +1,5 @@
 package za.ac.cput.repository.impl;
+
 /*
  * Booking.java
  * Booking Entity
