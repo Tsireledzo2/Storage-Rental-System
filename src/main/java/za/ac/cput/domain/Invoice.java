@@ -66,7 +66,7 @@ public class Invoice {
             return this;
         }
         public Invoice build(){
-            return new Invoice();
+            return new Invoice(this);
         }
 
     }

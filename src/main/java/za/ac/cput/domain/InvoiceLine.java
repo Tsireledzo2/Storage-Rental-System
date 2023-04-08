@@ -59,7 +59,7 @@ public class InvoiceLine {
             return this;
         }
         public InvoiceLine build(){
-            return new InvoiceLine();
+            return new InvoiceLine(this);
         }
     }
 }
