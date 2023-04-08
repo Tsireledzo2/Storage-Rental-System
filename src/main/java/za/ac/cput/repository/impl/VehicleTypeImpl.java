@@ -35,7 +35,7 @@ public class VehicleTypeImpl implements IVehicleTypeRepository {
     @Override
     public VehicleType create(VehicleType vehicleType) {
         boolean success = vehicleTypeDB.add(vehicleType);
-        System.out.println("Number of vehicleTypes: " + vehicleTypeDB);
+        System.out.println("vehicleTypes: " + vehicleTypeDB);
         if (!success)
             return null;
         return vehicleType;
@@ -44,7 +44,7 @@ public class VehicleTypeImpl implements IVehicleTypeRepository {
     @Override
     public VehicleType read(String name) {
         //use lambda to read
-        VehicleType vehicleType = vehicleTypeDB.stream().filter(driver1 -> driver1.getName().equals(name))
+        VehicleType vehicleType = vehicleTypeDB.stream().filter(vehicleType1 -> vehicleType1.getName().equals(name))
                 .findAny()
                 .orElse(null);
 
