@@ -10,7 +10,9 @@ public class DriverFactory {
         }
 
         String driverID = Helper.generateId();
-        Helper.isValidEmial(email);
+        if(!Helper.isValidEmial(email)){
+            return null;
+        }
 
         Driver driver = new Driver.Builder()
                 .setDriverID(driverID)
