@@ -14,7 +14,7 @@ public class Manager {
     private String email;
     private String password;
 
-    public Manager() {
+    private Manager() {
     }
     private Manager (Builder builder){
         this.id = builder.id;
