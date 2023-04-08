@@ -20,13 +20,13 @@ public class Helper {
         return false;
     }
 
-    public static Boolean isNullorEmpty(List s){
+    public static Boolean isNullorEmpty2(List s){
         if(s==null||s.isEmpty()){
             return true;
         }
         return false;
     }
-    public static Boolean isNullorEmpty(Float s){
+    public static Boolean isNullorEmpty3(Float s){
         if(s==null||s.isNaN()){
             return true;
         }
