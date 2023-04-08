@@ -16,7 +16,7 @@ public class AdminFactory {
         }
 
         String adminID = Helper.generateId();
-        if (Helper.isValidEmial(email)){
+        if (!Helper.isValidEmial(email)){
             return null;
         }
         Admin admin = new Admin.Builder()
