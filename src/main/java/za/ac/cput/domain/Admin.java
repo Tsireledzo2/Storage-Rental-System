@@ -13,7 +13,7 @@ public class Admin {
     private String email;
     private String password;
 
-    public Admin() {
+    private Admin() {
     }
     private Admin(Builder builder){
         this.id = builder.id;
