@@ -18,10 +18,10 @@ public class Booking {
     private boolean collection;
     private double Amount;
 
-    public Booking() {
+    private Booking() {
     }
 
-    public Booking(String id, Date date, Date startDate, Date endDate, boolean collection, double amount) {
+    private Booking(String id, Date date, Date startDate, Date endDate, boolean collection, double amount) {
         this.id = id;
         this.date = date;
         this.startDate = startDate;
@@ -30,7 +30,7 @@ public class Booking {
         Amount = amount;
     }
 
-    public Booking (Builder builder) {
+    private Booking (Builder builder) {
         this.id = builder.id;
         this.date = builder.date;
         this.startDate = builder.startDate;

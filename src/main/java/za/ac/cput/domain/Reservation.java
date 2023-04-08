@@ -19,7 +19,7 @@ public class Reservation {
     private Reservation() {
     }
 
-    public Reservation(String iD, String bookingId, Date date) {
+    private Reservation(String iD, String bookingId, Date date) {
         this.iD = iD;
         this.bookingId = bookingId;
         this.date = date;
