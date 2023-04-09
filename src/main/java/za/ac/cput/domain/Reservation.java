@@ -16,10 +16,12 @@ public class Reservation {
     private String iD, bookingId;
     private Date date;
 
-    private Reservation() {
+    public Reservation(String bookingId, Date date) {
+        this.bookingId = bookingId;
+        this.date = date;
     }
 
-    private Reservation(String iD, String bookingId, Date date) {
+    public Reservation(String iD, String bookingId, Date date) {
         this.iD = iD;
         this.bookingId = bookingId;
         this.date = date;
@@ -50,6 +52,19 @@ public class Reservation {
                 ", bookingId='" + bookingId + '\'' +
                 ", date=" + date +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Reservation that = (Reservation) o;
+        return Objects.equals(iD, that.iD) && Objects.equals(bookingId, that.bookingId) && Objects.equals(date, that.date);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(iD, bookingId, date);
     }
 
     public static class Builder {

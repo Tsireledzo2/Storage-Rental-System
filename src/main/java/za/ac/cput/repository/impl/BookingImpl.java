@@ -20,7 +20,8 @@ public class BookingImpl implements IBookingRepository {
 
     public Set<Booking> bookingDb;
 
-    private BookingImpl() { bookingDb = new HashSet<>();}
+    public BookingImpl() {
+        bookingDb = new HashSet<>();}
 
     public static BookingImpl getRepository() {
         if(repository == null){

@@ -8,7 +8,6 @@ package za.ac.cput.domain;
  * Date: 07 April 2023
  */
 
-import java.sql.Time;
 import java.util.Date;
 import java.util.Objects;
 
@@ -18,16 +17,25 @@ public class Booking {
     private boolean collection;
     private double Amount;
 
-    private Booking() {
-    }
-
-    private Booking(String id, Date date, Date startDate, Date endDate, boolean collection, double amount) {
-        this.id = id;
+    public Booking(Date date, Date startDate, Date endDate, boolean collection, double amount) {
         this.date = date;
         this.startDate = startDate;
         this.endDate = endDate;
         this.collection = collection;
         Amount = amount;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Booking booking = (Booking) o;
+        return collection == booking.collection && Double.compare(booking.Amount, Amount) == 0 && Objects.equals(id, booking.id) && Objects.equals(date, booking.date) && Objects.equals(startDate, booking.startDate) && Objects.equals(endDate, booking.endDate);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, date, startDate, endDate, collection, Amount);
     }
 
     private Booking (Builder builder) {
@@ -75,6 +83,7 @@ public class Booking {
                 ", Amount=" + Amount +
                 '}';
     }
+
 
     public static class Builder {
 
