@@ -14,10 +14,10 @@ import java.util.Set;
 
 public class InvoiceLineRepositoryImpl implements IInvoiceLineRepository {
     private static InvoiceLineRepositoryImpl InvoiceLineRepository= null;
-    private Set<InvoiceLine> InvoiceLineDB =null;
+    private Set<InvoiceLine> InvoiceLineDB = null;
 
     private InvoiceLineRepositoryImpl(){
-        this.InvoiceLineDB = new HashSet<>();
+        this.InvoiceLineDB = new HashSet<InvoiceLine>();
 
 
     }
@@ -34,21 +34,28 @@ public class InvoiceLineRepositoryImpl implements IInvoiceLineRepository {
     @Override
     public InvoiceLine create(InvoiceLine invoiceLine) {
         boolean success = this .InvoiceLineDB.add(invoiceLine);
-
-        if (!success){
+        System.out.println("invoice: "+InvoiceLineDB);
+        if (!success)
             return null;
-        }
         return invoiceLine;
     }
 
+//    @Override
+//    public InvoiceLine read(String s) {
+//        InvoiceLine read = this.InvoiceLineDB
+//                .stream()
+//                .filter(inc -> inc.getInvoiceListID().equals(s))
+//                .findAny()
+//                .orElse(null);
+//        return read;
+//    }
     @Override
-    public InvoiceLine read(String s) {
-        InvoiceLine read = this.InvoiceLineDB
-                .stream()
-                .filter(inc -> inc.getInvoiceListID().equals(s))
+    public InvoiceLine read(String invoiceId){
+        InvoiceLine invoiceLine = InvoiceLineDB.stream()
+                .filter(invoiceLine1 -> invoiceLine1.getInvoiceListID().equals(invoiceId))
                 .findAny()
                 .orElse(null);
-        return read;
+        return invoiceLine;
     }
 
     @Override
@@ -56,23 +63,23 @@ public class InvoiceLineRepositoryImpl implements IInvoiceLineRepository {
         InvoiceLine oldInvoiceLine = read(invoiceLine.getInvoiceListID());
 
         if (oldInvoiceLine != null){
-            this.InvoiceLineDB.remove(oldInvoiceLine);
-            this.InvoiceLineDB.add(invoiceLine);
+            InvoiceLineDB.remove(oldInvoiceLine);
+            InvoiceLineDB.add(invoiceLine);
             return invoiceLine;
         }
         return null;
     }
 
     @Override
-    public boolean delete(String s) {
-        InvoiceLine invoiceLine = read(s);
+    public boolean delete(String invoiceId) {
+        InvoiceLine invoiceLineDelete = read(invoiceId);
 
-        if (invoiceLine == null){
+        if (invoiceLineDelete == null)
             return false;
-        }
-        this.InvoiceLineDB.remove(invoiceLine);
+        InvoiceLineDB.remove(invoiceLineDelete);
         return true;
     }
+
     @Override
     public Set<InvoiceLine> getAll() {
         return InvoiceLineDB;
