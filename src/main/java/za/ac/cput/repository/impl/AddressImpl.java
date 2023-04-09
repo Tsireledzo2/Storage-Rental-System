@@ -6,22 +6,23 @@ Date: 07-04-2023
 Student Number: 220094861
  */
 import za.ac.cput.domain.Address;
+import za.ac.cput.domain.Customer;
 import za.ac.cput.repository.iAddressRepository;
 
 import java.util.HashSet;
 import java.util.Set;
 
-public class AddressRepositoryImpl implements iAddressRepository {
-    private static AddressRepositoryImpl addressRepository = null;
+public class AddressImpl implements iAddressRepository {
+    private static AddressImpl addressRepository = null;
     private Set <Address> addressDB = null;
 
-    private AddressRepositoryImpl(){
+    private AddressImpl(){
         addressDB = new HashSet<Address>();
     }
 
-    public static AddressRepositoryImpl getAddressRepository(){
+    public static AddressImpl getAddressRepository(){
         if (addressRepository == null){
-            addressRepository = new AddressRepositoryImpl();
+            addressRepository = new AddressImpl();
         }
         return addressRepository;
     }
@@ -30,7 +31,7 @@ public class AddressRepositoryImpl implements iAddressRepository {
         boolean success = addressDB.add(address);
         System.out.println("Address: " + addressDB );
         if(!success)
-        return null;
+            return null;
         return address;
     }
 
@@ -42,31 +43,32 @@ Address address = addressDB.stream()
                  .findAny()
                   .orElse(null);
 
-        return null;
+        return address;
     }
+
 
     @Override
     public Address update(Address address) {
      Address updateAddress = read(address.getAddressID());
      if (updateAddress !=null){
          addressDB.remove(updateAddress);
+         addressDB.add(address);
+         return address;
      }
         return null;
     }
 
     @Override
-    public boolean delete(String addressID) {
-Address deleteAddress = read(addressID);
-if (deleteAddress==null)
-
-        return false;
-addressDB.remove(deleteAddress);
-return true;
+    public boolean delete(String addressId) {
+        Address deleteAddress = read(addressId);
+        if (deleteAddress==null)
+            return false;
+         addressDB.remove(deleteAddress);
+        return true;
     }
 
     @Override
     public Set<Address> getAll() {
-
-        return null;
+        return addressDB;
     }
 }

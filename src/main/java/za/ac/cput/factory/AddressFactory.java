@@ -20,7 +20,8 @@ public class AddressFactory {
                 .setAddressID(addressId)
                 .setStreetName(streetName)
                 .setState(state)
-                .setZipCode(zipCode).build();
+                .setZipCode(zipCode)
+                .build();
 
         return address;
     }
