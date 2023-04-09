@@ -12,16 +12,17 @@ import za.ac.cput.util.Helper;
 import java.util.List;
 
 public class InvoiceLineFactory {
-    public static InvoiceLine buildInvoiceLine( List invoiceline) {
-        if ( Helper.isNullorEmpty2(invoiceline)) {
+    public static InvoiceLine buildInvoiceLine(List invoiceline) {
+        if (Helper.isNullorEmpty2(invoiceline)) {
             return null;
         }
         String invoiceLineId = Helper.generateId();
 
         InvoiceLine invoiceList = new InvoiceLine.Builder()
-                .setInvoiceline(invoiceline)
                 .setInvoiceListID(invoiceLineId)
+                .setInvoiceline(invoiceline)
                 .build();
         return invoiceList;
+
     }
 }
