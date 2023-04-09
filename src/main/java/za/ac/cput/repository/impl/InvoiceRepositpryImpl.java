@@ -17,7 +17,7 @@ public class InvoiceRepositpryImpl implements IInvoiceRepository {
     private Set<Invoice> InvoiceDB = null;
 
     private InvoiceRepositpryImpl(){
-        this.InvoiceDB = new HashSet<>();
+        this.InvoiceDB = new HashSet<Invoice>();
     }
     public static InvoiceRepositpryImpl getRepository(){
         if (InvoiceRepositpry == null ){
@@ -30,41 +30,40 @@ public class InvoiceRepositpryImpl implements IInvoiceRepository {
 
     @Override
     public Invoice create(Invoice invoice) {
-        boolean success = this.InvoiceDB.add(invoice);
-        if (!success){
+        boolean success = InvoiceDB.add(invoice);
+        System.out.println("Invoice: "+InvoiceDB );
+        if (!success)
             return null;
-        }
         return invoice;
     }
 
     @Override
-    public Invoice read(String s) {
-        Invoice read = this.InvoiceDB
+    public Invoice read(String invoiceId) {
+        Invoice invoice = InvoiceDB
                 .stream()
-                .filter(in ->in.getInvoiceID().equals(s))
+                .filter(invoice1 -> invoice1.getInvoiceID().equals(invoiceId))
                 .findAny()
                 .orElse(null);
-        return read;
+        return invoice;
     }
 
     @Override
     public Invoice update(Invoice invoice) {
         Invoice oldInvoice = read(invoice.getInvoiceID());
-
         if (oldInvoice != null){
-            this.InvoiceDB.remove(oldInvoice);
-            this.InvoiceDB.add(invoice);
+            InvoiceDB.remove(oldInvoice);
+            InvoiceDB.add(invoice);
+            return invoice;
         }
         return null;
     }
 
     @Override
-    public boolean delete(String s) {
-        Invoice invoice = read(s);
-        if (invoice == null){
+    public boolean delete(String invoiceId) {
+        Invoice invoice = read(invoiceId);
+        if (invoice == null)
             return false;
-        }
-        this.InvoiceDB.remove(invoice);
+        InvoiceDB.remove(invoice);
         return true;
     }
     @Override
