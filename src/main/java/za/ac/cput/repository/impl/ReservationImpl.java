@@ -1,10 +1,9 @@
 package za.ac.cput.repository.impl;
 
 /*
- * Booking.java
- * Booking Entity
- * @author: Argus Hakizimana Mbogo
- * Student N.o 220073260
+ * ReservationImpl.java
+ * Entity for ReservationImpl
+ * @author: Argus Hakizimana Mbogo (220073260)
  * Date: 07 April 2023
  */
 
@@ -20,12 +19,14 @@ public class ReservationImpl implements IReservationRepository {
 
     private Set<Reservation> reservationDb;
 
-    public  ReservationImpl() {
+    public ReservationImpl() {
         reservationDb = new HashSet<>();
     }
 
     public static ReservationImpl getRepository() {
-        return (repository == null) ? repository = new ReservationImpl() : repository;}
+        return (repository == null) ? repository = new ReservationImpl() : repository;
+    }
+
     @Override
     public Reservation create(Reservation reservation) {
 
@@ -43,7 +44,7 @@ public class ReservationImpl implements IReservationRepository {
     @Override
     public Reservation update(Reservation reservation) {
         Reservation oldReservation = read(reservation.getiD());
-        if(oldReservation != null){
+        if (oldReservation != null) {
             reservationDb.remove(oldReservation);
             reservationDb.add(reservation);
             return reservation;

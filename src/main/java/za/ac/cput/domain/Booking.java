@@ -3,8 +3,7 @@ package za.ac.cput.domain;
 /*
  * Booking.java
  * Booking Entity
- * @author: Argus Hakizimana Mbogo
- * Student N.o 220073260
+ * @author: Argus Hakizimana Mbogo (220073260)
  * Date: 07 April 2023
  */
 
@@ -13,7 +12,7 @@ import java.util.Objects;
 
 public class Booking {
     private String id;
-    private Date date, startDate , endDate;
+    private Date date, startDate, endDate;
     private boolean collection;
     private double Amount;
 
@@ -30,7 +29,11 @@ public class Booking {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Booking booking = (Booking) o;
-        return collection == booking.collection && Double.compare(booking.Amount, Amount) == 0 && Objects.equals(id, booking.id) && Objects.equals(date, booking.date) && Objects.equals(startDate, booking.startDate) && Objects.equals(endDate, booking.endDate);
+        return collection == booking.collection
+                && Double.compare(booking.Amount, Amount) == 0
+                && Objects.equals(id, booking.id) && Objects.equals(date, booking.date)
+                && Objects.equals(startDate, booking.startDate)
+                && Objects.equals(endDate, booking.endDate);
     }
 
     @Override
@@ -38,7 +41,7 @@ public class Booking {
         return Objects.hash(id, date, startDate, endDate, collection, Amount);
     }
 
-    private Booking (Builder builder) {
+    private Booking(Builder builder) {
         this.id = builder.id;
         this.date = builder.date;
         this.startDate = builder.startDate;
@@ -88,7 +91,7 @@ public class Booking {
     public static class Builder {
 
         private String id;
-        private Date date, startDate , endDate;
+        private Date date, startDate, endDate;
         private boolean collection;
         private double Amount;
 
@@ -132,7 +135,9 @@ public class Booking {
             return this;
         }
 
-        public Booking build() {return new Booking(this);}
+        public Booking build() {
+            return new Booking(this);
+        }
     }
 }
 
