@@ -1,9 +1,8 @@
 package za.ac.cput.factory;
 /*
- * Booking.java
- * Booking Entity
- * @author: Argus Hakizimana Mbogo
- * Student N.o 220073260
+ * ReservationFactory.java
+ * Entity for ReservationFactory
+ * @author: Argus Hakizimana Mbogo (220073260)
  * Date: 07 April 2023
  */
 
@@ -15,7 +14,7 @@ import java.util.Date;
 public class ReservationFactory {
     public static Reservation createReservation(String bookingId, Date date) {
 
-        if(Helper.isNullorEmpty(bookingId) || Helper.isNullorEmpty(date.toString())){
+        if (Helper.isNullorEmpty(bookingId) || Helper.isNullorEmpty(date.toString())) {
             return null;
         }
 
