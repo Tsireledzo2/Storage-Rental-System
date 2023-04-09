@@ -1,4 +1,10 @@
 package za.ac.cput.factory;
+/*
+Author @Ndumiso Nkululeko Ngcobo
+Date: 09/04/2023
+Student Number: 220094861
+This is a Customer Factory Test Class
+*/
 
 import static org.junit.jupiter.api.Assertions.*;
 
