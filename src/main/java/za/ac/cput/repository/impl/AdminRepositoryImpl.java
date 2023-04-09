@@ -14,15 +14,13 @@ import java.util.Set;
 
 public class AdminRepositoryImpl implements IAdminRepository{
  private static AdminRepositoryImpl adminRepository = null;
- private Set<Admin> adminDB = null;
+ private Set<Admin> adminDB;
 
- private AdminRepositoryImpl(){
-     adminDB = new HashSet<Admin>();
+ private AdminRepositoryImpl(){adminDB = new HashSet<>();}
 
- }
  public static AdminRepositoryImpl getAdminRepository(){
      if (adminRepository == null) {
-         adminRepository  = new AdminRepositoryImpl ();
+         adminRepository  = new AdminRepositoryImpl();
      }
      return adminRepository;
  }
@@ -41,7 +39,7 @@ public class AdminRepositoryImpl implements IAdminRepository{
      Admin admin =adminDB.stream().filter(admin1 -> admin1.getId().equals(id))
              .findAny()
              .orElse(null);
-        return null;
+        return admin;
     }
 
     @Override
@@ -50,6 +48,7 @@ public class AdminRepositoryImpl implements IAdminRepository{
      if(formerAdmin != null){
          adminDB.remove(formerAdmin);
          adminDB.add(admin);
+         return admin;
      }
         return null;
     }

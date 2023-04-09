@@ -19,10 +19,8 @@ public class ManagerRepositoryImpl implements IManagerRepository{
         private static ManagerRepositoryImpl managerRepository = null;
         private Set<Manager> managerDB = null;
 
-        private ManagerRepositoryImpl(){
-            managerDB = new HashSet<Manager>();
+        private ManagerRepositoryImpl(){managerDB = new HashSet<Manager>();}
 
-        }
         public static ManagerRepositoryImpl getManagerRepository(){
             if (managerRepository == null) {
                 managerRepository  = new ManagerRepositoryImpl();
@@ -53,6 +51,7 @@ public class ManagerRepositoryImpl implements IManagerRepository{
             if(formerManager != null){
                 managerDB.remove(formerManager);
                 managerDB.add(manager);
+                return manager;
             }
             return null;
         }
