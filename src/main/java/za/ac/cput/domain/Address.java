@@ -6,11 +6,15 @@ Date: 07-04-2023
 Student Number: 220094861
  */
 public class Address {
+
+
     private String addressID;
     private String streetName;
     private String state;
     private String zipCode;
+    private Address(){
 
+    }
     public String getAddressID() {
         return addressID;
     }
@@ -26,9 +30,18 @@ public class Address {
     public String getZipCode() {
         return zipCode;
     }
-    private Address(){
 
+
+    @Override
+    public String toString() {
+        return "Address{" +
+                "addressID='" + addressID + '\'' +
+                ", streetName='" + streetName + '\'' +
+                ", state='" + state + '\'' +
+                ", zipCode='" + zipCode + '\'' +
+                '}';
     }
+
     private Address(Builder builder){
 
         this.addressID = builder.addressID;
