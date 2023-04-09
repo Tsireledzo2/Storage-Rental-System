@@ -15,17 +15,17 @@ import za.ac.cput.repository.iCustomerRepository;
 import java.util.HashSet;
 import java.util.Set;
 
-public class CustomerRepositoryImpl implements iCustomerRepository {
-    private static CustomerRepositoryImpl customerRepository = null;
+public class CustomerImpl implements iCustomerRepository {
+    private static CustomerImpl customerRepository = null;
     private Set <Customer> customerDB = null;
 
-    private CustomerRepositoryImpl(){
+    private CustomerImpl(){
         customerDB = new HashSet<Customer>();
     }
 
-    public static CustomerRepositoryImpl getCustomerRepository(){
+    public static CustomerImpl getCustomerRepository(){
         if (customerRepository == null){
-            customerRepository = new CustomerRepositoryImpl();
+            customerRepository = new CustomerImpl();
         }
         return customerRepository;
     }
@@ -46,7 +46,7 @@ public class CustomerRepositoryImpl implements iCustomerRepository {
                 .findAny()
                 .orElse(null);
 
-        return null;
+        return customer;
     }
 
     @Override
@@ -55,6 +55,7 @@ public class CustomerRepositoryImpl implements iCustomerRepository {
         if (updateCustomer !=null){
             customerDB.remove(updateCustomer);
             customerDB.add(customer);
+            return customer;
 
         }
         return null;
@@ -74,6 +75,6 @@ public class CustomerRepositoryImpl implements iCustomerRepository {
 
     @Override
     public Set<Customer> getAll() {
-        return null;
+        return customerDB;
     }
 }
