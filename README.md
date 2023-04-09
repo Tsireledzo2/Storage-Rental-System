@@ -1,3 +1,3 @@
 # Storage-Rental-System
 ## UML DIAGRAM
-![Storage-System](https://user-images.githubusercontent.com/101458558/230711770-455479a5-b25e-44ad-9dd7-14835e4e8823.jpg)
+![Storage System UML](https://user-images.githubusercontent.com/101458558/230739968-e8589b5c-2e98-4ed7-8917-dbd28b3ab63a.jpg)
