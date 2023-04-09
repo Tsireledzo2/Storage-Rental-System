@@ -1,4 +1,10 @@
 package za.ac.cput.repository.impl;
+/*
+ * ReservationImplTest.java
+ * Entity for ReservationImplTest
+ * @author: Argus Hakizimana Mbogo (220073260)
+ * Date: 07 April 2023
+ */
 
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
@@ -9,13 +15,15 @@ import za.ac.cput.factory.ReservationFactory;
 
 import java.util.Date;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class ReservationImplTest {
 
-    private static ReservationImpl repository = ReservationImpl.getRepository();
-    private static Reservation reservation = ReservationFactory.createReservation("1234",new Date(2023,8,04));
+    private static final ReservationImpl repository = ReservationImpl.getRepository();
+    private static final Reservation reservation = ReservationFactory.createReservation("1234"
+            , new Date(2023, 8, 04));
 
     @Test
     @Order(1)
@@ -39,7 +47,7 @@ class ReservationImplTest {
         Reservation updated = new Reservation.Builder()
                 .copy(reservation)
                 .setBookingId("456")
-                .setDate(new Date(2023,4,9))
+                .setDate(new Date(2023, 4, 9))
                 .build();
         assertNotNull(updated);
         System.out.println(updated);

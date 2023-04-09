@@ -1,10 +1,9 @@
 package za.ac.cput.repository.impl;
 
 /*
- * Booking.java
- * Booking Entity
- * @author: Argus Hakizimana Mbogo
- * Student N.o 220073260
+ * BookingImpl.java
+ * BookingImpl Entity
+ * @author: Argus Hakizimana Mbogo (220073260)
  * Date: 07 April 2023
  */
 
@@ -21,18 +20,20 @@ public class BookingImpl implements IBookingRepository {
     public Set<Booking> bookingDb;
 
     public BookingImpl() {
-        bookingDb = new HashSet<>();}
+        bookingDb = new HashSet<>();
+    }
 
     public static BookingImpl getRepository() {
-        if(repository == null){
+        if (repository == null) {
             repository = new BookingImpl();
         }
         return repository;
     }
+
     @Override
     public Booking create(Booking booking) {
         boolean added = bookingDb.add(booking);
-        if(!added){
+        if (!added) {
             return null;
         }
         return booking;
@@ -49,7 +50,7 @@ public class BookingImpl implements IBookingRepository {
     @Override
     public Booking update(Booking booking) {
         Booking oldBooking = read(booking.getId());
-        if(oldBooking != null){
+        if (oldBooking != null) {
             bookingDb.remove(oldBooking);
             bookingDb.add(booking);
             return booking;
@@ -60,7 +61,7 @@ public class BookingImpl implements IBookingRepository {
     @Override
     public boolean delete(String id) {
         Booking bookingToDelete = read(id);
-        if(bookingToDelete == null){
+        if (bookingToDelete == null) {
             return false;
         }
         bookingDb.remove(bookingToDelete);
