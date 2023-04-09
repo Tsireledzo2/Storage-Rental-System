@@ -9,7 +9,7 @@ import za.ac.cput.domain.Admin;
 import za.ac.cput.util.Helper;
 public class AdminFactory {
 
-    public static Admin createAdmin(String id,String firstName,String lastName,String email,String password){
+    public static Admin createAdmin(String firstName,String lastName,String email,String password){
 
         if(Helper.isNullorEmpty(firstName)||Helper.isNullorEmpty(lastName)){
             return null;

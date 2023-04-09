@@ -19,11 +19,13 @@ public class InvoiceFactory {
         String invoiceid = Helper.generateId();
 
         Invoice invoice = new Invoice.Builder()
+                .setInvoiceID(invoiceid)
                 .setAmount(amount)
                 .setCustomerName(customerName)
-                .setInvoiceID(invoiceid)
                 .build();
         return invoice;
 
     }
+
+
 }

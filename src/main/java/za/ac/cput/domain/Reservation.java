@@ -1,10 +1,9 @@
 package za.ac.cput.domain;
 
 /*
- * Booking.java
- * Booking Entity
- * @author: Argus Hakizimana Mbogo
- * Student N.o 220073260
+ * Reservation.java
+ * Entity for Reservation
+ * @author: Argus Hakizimana Mbogo (220073260)
  * Date: 07 April 2023
  */
 
@@ -16,10 +15,12 @@ public class Reservation {
     private String iD, bookingId;
     private Date date;
 
-    private Reservation() {
+    public Reservation(String bookingId, Date date) {
+        this.bookingId = bookingId;
+        this.date = date;
     }
 
-    private Reservation(String iD, String bookingId, Date date) {
+    public Reservation(String iD, String bookingId, Date date) {
         this.iD = iD;
         this.bookingId = bookingId;
         this.date = date;
@@ -52,6 +53,21 @@ public class Reservation {
                 '}';
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Reservation that = (Reservation) o;
+        return Objects.equals(iD, that.iD)
+                && Objects.equals(bookingId, that.bookingId)
+                && Objects.equals(date, that.date);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(iD, bookingId, date);
+    }
+
     public static class Builder {
         private String iD, bookingId;
         private Date date;
@@ -78,7 +94,9 @@ public class Reservation {
             return this;
         }
 
-        public Reservation build() {return new Reservation(this);}
+        public Reservation build() {
+            return new Reservation(this);
+        }
     }
 }
 

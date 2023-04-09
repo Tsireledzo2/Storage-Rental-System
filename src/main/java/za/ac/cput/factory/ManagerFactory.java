@@ -10,19 +10,18 @@ import za.ac.cput.domain.Manager;
 import za.ac.cput.util.Helper;
 public class ManagerFactory {
 
-    public static Manager createManager(String id,String firstName,String lastName,String email,String password){
+    public static Manager createManager(String firstName,String lastName,String email,String password){
 
         if(Helper.isNullorEmpty(firstName)||Helper.isNullorEmpty(lastName)){
             return null;
         }
         String managerID = Helper.generateId();
-
         if (!Helper.isValidEmial(email)){
             return null;
         }
 
         Manager manager = new Manager.Builder()
-                .setId(id)
+                .setId(managerID)
                 .setFirstName(firstName)
                 .setLastName(lastName)
                 .setEmail(email)

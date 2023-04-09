@@ -1,10 +1,9 @@
 package za.ac.cput.factory;
 
 /*
- * Booking.java
- * Booking Entity
- * @author: Argus Hakizimana Mbogo
- * Student N.o 220073260
+ * BookingFactory.java
+ * Entity for BookingFactory
+ * @author: Argus Hakizimana Mbogo (220073260)
  * Date: 07 April 2023
  */
 
