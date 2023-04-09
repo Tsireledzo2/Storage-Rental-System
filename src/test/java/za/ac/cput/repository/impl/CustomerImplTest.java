@@ -1,5 +1,10 @@
 package za.ac.cput.repository.impl;
-
+/*
+Author @Ndumiso Nkululeko Ngcobo
+Student Number: 220094861
+Date: 09/04/2023
+This is acustomer impl test class
+*/
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
