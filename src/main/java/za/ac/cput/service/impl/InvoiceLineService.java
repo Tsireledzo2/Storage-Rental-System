@@ -2,9 +2,13 @@ package za.ac.cput.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import za.ac.cput.domain.InvoiceLine;
+import za.ac.cput.service.IInvoiceLine;
+
+import java.util.List;
 
 @Service
-public class InvoiceLineService {
+public class InvoiceLineService implements IInvoiceLine {
     private InvoiceLineService invoiceLineService;
 
     @Autowired
@@ -12,4 +16,27 @@ public class InvoiceLineService {
         this.invoiceLineService = invoiceLineService;
     }
 
+    @Override
+    public InvoiceLine create(InvoiceLine T) {
+        return null;
+    }
+
+    @Override
+    public InvoiceLine read(String s) {
+        return null;
+    }
+
+    @Override
+    public InvoiceLine update(InvoiceLine T) {
+        return null;
+    }
+
+    @Override
+    public boolean delete(String s) {
+        return false;
+    }
+    @Override
+    public List<InvoiceLine> getAll() {
+        return null;
+    }
 }
